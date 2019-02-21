@@ -17,7 +17,8 @@ studentRoute.get("/:id", async (req, res) => {
     const students = await db
       .select()
       .from("students")
-      .where({ id: id });
+      .where({ id: id })
+      .first();
     res.status(200).json(students);
   } catch (error) {
     res.status(500).json("ooops");
