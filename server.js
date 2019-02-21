@@ -1,12 +1,12 @@
+const studentRoute = require("./studentRoute");
 const express = require("express");
 const helmet = require("helmet");
-const knex = require("knex");
-const knexConfig = require("./knexfile");
 
-knex(knexConfig);
 const server = express();
 
 server.use(express.json());
 server.use(helmet());
+server.use("/api/students", studentRoute);
+// server.use("/api/cohort", cohortRoute);
 
 module.exports = server;
